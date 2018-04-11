@@ -35,9 +35,9 @@ var playerTwoName =    $('#player-two-name');
 
 function renderGame() {
   // First, draw all the chips into the right containers
-  chipContainer.html = '';
-  playerOneChipsContainer.html = '';
-  playerTwoChipsContainer.html = '';
+  chipContainer.html('');
+  playerOneChipsContainer.html('');
+  playerTwoChipsContainer.html('');
   for (var i=0; i<chips; i++) {
     chipContainer.append(chipHTML);
   };
@@ -58,8 +58,8 @@ function renderGame() {
   }
 
   // Show the name of each player
-  playerOneName.html = playerOne;
-  $playerTwoName.html = playerTwo;
+  playerOneName.html(playerOne);
+  playerTwoName.html(playerTwo);
 }
 
 function takeChip() {
@@ -111,20 +111,20 @@ function resetGame() {
 //***********************
 //  KICKING IT ALL OFF
 //***********************
-playerOneTake.click(function){
+$(playerOneTake).click(function(){
   takeChip();
 });
 
 
-playerTwoTake.click(function){
+$(playerTwoTake).click(function(){
   takeChip();
 });
 
-playerOnePass.click(function){
+$(playerOnePass).click(function(){
   pass();
 });
 
-playerTwoPass.click(function){
+$(playerTwoPass).click(function(){
   pass();
 });
 
