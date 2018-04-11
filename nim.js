@@ -17,8 +17,8 @@ var chipHTML = '<div class="chip"></div>';
 
 // Variables that point to different DOM elements
 
-var $('#chips') =    $('#chips');
-var $('#player-one-chips') =   $('#player-one-chips');
+var chipContainer =    $('#chips');
+var playerOneChipsContainer =   $('#player-one-chips');
 var playerTwoChipsContainer =   $('#player-two-chips');
 var playerOneTake =    $('#player-one-take');
 var playerTwoTake =    $('#player-two-take');
@@ -35,31 +35,31 @@ var playerTwoName =    $('#player-two-name');
 
 function renderGame() {
   // First, draw all the chips into the right containers
-  $('#chips').html = '';
-  $('#player-one-chips').html = '';
-  $('#player-two-chips').html = '';
+  chipContainer.html = '';
+  playerOneChipsContainer.html = '';
+  playerTwoChipsContainer.html = '';
   for (var i=0; i<chips; i++) {
-    $('#chips').html += chipHTML
+    chipContainer.append(chipHTML);
   };
   for (var i=0; i<playerOneChips; i++) {
-    $('#player-one-chips').html += chipHTML
+    playerOneChipsContainer.append(chipHTML);
   };
   for (var i=0; i<playerTwoChips; i++) {
-    $('#player-two-chips').html += chipHTML
+    playerTwoChipsContainer.append(chipHTML);
   };
 
   // Show/Hide the appropriate action buttons
   if (currentPlayer == 1) {
-    $('#player-one-options').style.visibility = "visible"; 
-    $('#player-two-options').style.visibility = "hidden"; 
+    playerOneOptions.style.visibility = "visible"; 
+    playerTwoOptions.style.visibility = "hidden"; 
   } else {
-    $('#player-one-options').style.visibility = "hidden"; 
-    $('#player-two-options').style.visibility = "visible"; 
+    playerOneOptions.style.visibility = "hidden"; 
+    playerTwoOptions.style.visibility = "visible"; 
   }
 
   // Show the name of each player
-  $('#player-one-name').html = playerOne;
-  $('#player-two-name').html = playerTwo;
+  playerOneName.html = playerOne;
+  $playerTwoName.html = playerTwo;
 }
 
 function takeChip() {
@@ -111,7 +111,9 @@ function resetGame() {
 //***********************
 //  KICKING IT ALL OFF
 //***********************
-playerOneTake.onclick = function () {
+playerOneTake.on('click', function(){
+  
+} 
   takeChip();
 }
 
@@ -127,6 +129,11 @@ playerTwoPass.onclick = function() {
   pass();
 }
 
+/*  $('ul').on('click', '.delete', function(){
+          var todoId = $(this).parent().data('id');
+          deleteTodo(todoId);
+        });
+        renderTodoList(); */
 
 
 resetGame();
