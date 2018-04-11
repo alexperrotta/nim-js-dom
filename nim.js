@@ -50,11 +50,11 @@ function renderGame() {
 
   // Show/Hide the appropriate action buttons
   if (currentPlayer == 1) {
-    playerOneOptions.style.visibility = "visible"; 
-    playerTwoOptions.style.visibility = "hidden"; 
+    playerOneOptions.css("visibility", "visible"); 
+    playerTwoOptions.css("visibility", "hidden"); 
   } else {
-    playerOneOptions.style.visibility = "hidden"; 
-    playerTwoOptions.style.visibility = "visible"; 
+    playerOneOptions.css("visibility", "hidden");  
+    playerTwoOptions.css("visibility", "visible"); 
   }
 
   // Show the name of each player
@@ -102,8 +102,8 @@ function resetGame() {
   playerOneChips = 0;
   playerTwoChips = 0;
   currentPlayer = 1;
-  // playerOne = prompt("Enter player one's name");
-  // playerTwo = prompt("Enter player two's name");
+  playerOne = prompt("Enter player one's name");
+  playerTwo = prompt("Enter player two's name");
   renderGame();
   
 }
@@ -111,29 +111,22 @@ function resetGame() {
 //***********************
 //  KICKING IT ALL OFF
 //***********************
-playerOneTake.on('click', function(){
-  
-} 
+playerOneTake.click(function){
   takeChip();
-}
+});
 
-playerTwoTake.onclick = function() {
+
+playerTwoTake.click(function){
   takeChip();
-}
+});
 
-playerOnePass.onclick = function() {
+playerOnePass.click(function){
   pass();
-}
+});
 
-playerTwoPass.onclick = function() {
+playerTwoPass.click(function){
   pass();
-}
-
-/*  $('ul').on('click', '.delete', function(){
-          var todoId = $(this).parent().data('id');
-          deleteTodo(todoId);
-        });
-        renderTodoList(); */
+});
 
 
 resetGame();
